@@ -66,7 +66,10 @@ def followvote(op):
   if dovote == True and (str(post['last_payout']) != '1970-01-01 00:00:00' or post['max_accepted_payout'] == Amount('0.000 SBD')):
     print(postid+' is not a curation rewarding post')
     dovote = False
-
+    
+  if dovote == True and str(post['parent_permlink']) == '':
+    print (postid+' is a comment with no parent_permlink')
+    dovote = False
   if dovote == True:
     fweight = follow[op['voter']]
     weight = fweight
