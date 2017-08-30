@@ -67,8 +67,8 @@ def followvote(op):
     print(postid+' is not a curation rewarding post')
     dovote = False
     
-  if dovote == True and str(post['parent_permlink']) == '':
-    print (postid+' is a comment with no parent_permlink')
+  if dovote == True and str(post['parent_author']) != '':
+    print (postid+' is a comment with a parent_author')
     dovote = False
   if dovote == True:
     fweight = follow[op['voter']]
